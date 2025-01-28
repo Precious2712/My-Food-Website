@@ -27,30 +27,26 @@ export const useGetUserCart = () => {
     }, []);
 
     const deleteCartProduct = async (id) => {
-        alert( id);
+        alert(id);
         try {
-            const handleDeleteItem = await axios.delete(`http://localhost:2000/api/v4/deleteUserCart${id}`,
+            const handleDeleteItem = await axios.delete(`http://localhost:2000/api/v4/deleteUserCart/${id}`,
                 {
                     headers: {
-                        Authorization: 'Bearer' + localStorage.getItem('token'),
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
                     },
-                    // data: { productId: productId }
-                    // data: { id: id }
                 }
             )
-            console.log('handle',handleDeleteItem);
-            
+            console.log('handle', handleDeleteItem);
+            individualCart()
         } catch (error) {
             console.log(error);
 
         }
     };
 
-
     return {
-        // individualCart,
+        individualCart,
         items,
         deleteCartProduct
     }
-
 };

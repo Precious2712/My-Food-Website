@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react'
 import { useGetUserCart } from './hook/useGetUserCart'
 import { Button } from '@/components/ui/button';
+import { updateQuantity } from './hook/updateQuantity';
 
 const Carts = () => {
 
     const { items, deleteCartProduct } = useGetUserCart();
 
-    const increaseButton = (data) => {
-        // console.log('data', data);
-
-        alert('Increasing')
-    };
+    const { increaseButton } = updateQuantity();
+    
 
     return (
         <div className=' dark:bg-gray-900'>
@@ -44,7 +42,7 @@ const Carts = () => {
                                                                     </a>
                                                                     <div class="flex items-center justify-between md:order-3 md:justify-end">
                                                                         <div class="flex items-center">
-                                                                            <button
+                                                                            <button onClick={() => increaseButton(-1,product?.productId)}
                                                                                 type="button"
                                                                                 id="decrement-button"
                                                                                 data-input-counter-decrement="counter-input"
@@ -75,7 +73,7 @@ const Carts = () => {
                                                                                 value={product?.quantity}
                                                                                 required
                                                                             />
-                                                                            <button onClick={() => increaseButton(product)}
+                                                                            <button onClick={() => increaseButton(1, product?.productId)}
                                                                                 type="button"
                                                                                 id="increment-button"
                                                                                 data-input-counter-increment="counter-input"
@@ -193,11 +191,6 @@ const Carts = () => {
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
 
     )
