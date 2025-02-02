@@ -9,9 +9,8 @@ const Carts = () => {
 
     const { increaseButton } = updateQuantity();
     
-
     return (
-        <div className=' dark:bg-gray-900'>
+        <div className=' dark:bg-gray-900 min-h-screen'>
             <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-4xl">Shopping Cart</h2>
             <div>
                 {

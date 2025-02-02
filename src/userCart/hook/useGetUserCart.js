@@ -15,7 +15,7 @@ export const useGetUserCart = () => {
                 }
             );
             setItems(getCustomerCart?.data)
-            console.log('getCustomerCart', getCustomerCart?.data);
+            // console.log('getCustomerCart', getCustomerCart?.data);
         } catch (error) {
             console.log(error);
         }

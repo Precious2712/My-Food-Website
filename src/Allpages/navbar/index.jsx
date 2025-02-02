@@ -7,6 +7,7 @@ const HeroReact = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [toggle, setToggle] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const toggleClass = () => {
         setIsNavOpen(!isNavOpen);
@@ -14,8 +15,7 @@ const HeroReact = () => {
         closeAfterClick?.classList?.toggle("open");
     };
 
-    function handleLogOut() {
-        alert("Log Out");
+    function confirmLogOut() {
         localStorage.removeItem("token");
         navigate('/login')
     }
@@ -24,15 +24,13 @@ const HeroReact = () => {
         const token = localStorage.getItem("token");
         if (!token) {
             alert('Your token has expired please login')
-            handleLogOut()
+            navigate('/login')
         }
     }
-
 
     useEffect(() => {
         checkingToken()
     }, [/* dependencies */]);
-
 
 
     return (
@@ -97,13 +95,38 @@ const HeroReact = () => {
                                 Cart
                             </div>
                         </Link>
-                        <button onClick={handleLogOut} className="bg-transparent border text-lg font-semibold border-orange-600 py-1.5 px-5 rounded-md h-max text-white hover:bg-orange-600">
+                    </div>
+
+                    <div className="modal">
+                        <button
+                            onClick={() => setShowModal(true)}
+                            className="bg-transparent border border-orange-600 py-1.5 px-5 rounded-md h-max text-white hover:bg-orange-600"
+                        >
                             Log out
                         </button>
+
+                        {showModal && (
+                            <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+                                <div className="bg-white rounded-lg p-6 text-center w-[300px]">
+                                    <p className="text-gray-600 mb-5">Do you want to log out?</p>
+                                    <div className="flex justify-center gap-4">
+                                        <button
+                                            onClick={confirmLogOut}
+                                            className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
+                                        >
+                                            Yes
+                                        </button>
+                                        <button
+                                            onClick={() => setShowModal(false)}
+                                            className="bg-gray-300 px-4 py-2 rounded-md hover:bg-gray-400"
+                                        >
+                                            No
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
-                    <button onClick={() => handleLogOut()} className="block sm:hidden bg-transparent border border-orange-600 py-1.5 px-5 rounded-md h-max text-white hover:bg-orange-600">
-                        Log out
-                    </button>
                 </div>
                 <div
                     className={`

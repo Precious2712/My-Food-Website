@@ -5,7 +5,7 @@ import { useGetUserCart } from "@/userCart/hook/useGetUserCart";
 
 const SnackFoods = () => {
     const { items } = useGetUserCart();
-    console.log('page:', items?.result[0]?.items?.length);
+    // console.log('page:', items?.result[0]?.items?.length);
 
     const { handleSelectSingleId } = useGetSingleFood();
     const location = useLocation();

@@ -76,10 +76,3 @@ const items = [
         age: 22
     }
 ]
-
-console.log('items:', items);
-
-const deleteItem = items.splice(0,1)
-console.log('deleteItem:', deleteItem);
-
-console.log('affected', items);
