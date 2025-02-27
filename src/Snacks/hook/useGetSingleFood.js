@@ -13,7 +13,7 @@ export const useGetSingleFood = () => {
             const getSelectedFoodId = await axios.get(`http://localhost:2000/api/v3/getAllCategories/${id}`);
             // console.log('data', getSelectedFoodId);
             const colnedRes = JSON.parse(JSON.stringify(getSelectedFoodId));
-            Navigate('/food-details', { state: { response: colnedRes } })
+            Navigate('/food-details', { state: { response: colnedRes } });
         } catch (error) {
             console.log('error: /', error);
         }
