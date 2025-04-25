@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import SignupRegisterForm from "@/shared";
 import { inputs } from "@/shared/inputs";
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -36,7 +36,7 @@ const Signup = () => {
             console.log(information);
             alert('form submitted');
             // console.log(information);
-            
+
             if (res) {
                 navigate('/login')
             }
@@ -50,29 +50,37 @@ const Signup = () => {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-blue-800">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-blue-700 via-purple-600 to-indigo-900 px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-md space-y-8 p-8 bg-white rounded-2xl shadow-2xl ring-1 ring-gray-200">
+                <h1 className="text-2xl font-bold text-gray-800 text-center">Create Your Account</h1>
 
-            <div className="max-w-md w- space-y-8 p-10 bg-white rounded-xl shadow-lg">
-                <h1 className="text-1xl font-bold lg:text-2xl">Please Fill In Your Details</h1>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                         {inputs.map((elem, i) => (
                             <SignupRegisterForm key={i + elem.name} {...elem} form={form} />
                         ))}
-                        <Button type="submit" className="w-full mt-4" disabled={isloading} >
+
+                        <Button
+                            type="submit"
+                            className="w-full bg-blue-800 hover:bg-blue-500 text-white font-medium py-2 rounded-md transition-all duration-300"
+                            disabled={isloading}
+                        >
                             {isloading ? "Loading..." : "Sign Up"}
                         </Button>
                     </form>
                 </Form>
 
-                <Link to="/login" className=" text-blue-500 text-center ">
-                    <p className='mt-3'>Already have an account, click to login</p>
-                </Link>
+                <div className="text-center text-sm text-gray-600 mt-4">
+                    Already have an account?{" "}
+                    <Link to="/login" className="text-blue-600 hover:underline font-medium">
+                        Login
+                    </Link>
+                </div>
 
                 <Outlet />
             </div>
-
         </div>
+
     )
 };
 

@@ -59,27 +59,35 @@ const LoginUser = () => {
 
 
     return (
-        <div className="flex items-center justify-center h-screen bg-blue-800">
-            <div className="p-8 bg-white shadow-lg rounded-lg">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-blue-700 via-purple-700 to-indigo-900 px-4">
+            <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-2xl ring-1 ring-gray-200 space-y-6">
+                <h1 className="text-2xl font-bold text-center text-gray-800">Welcome Back</h1>
+
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                        {field.map((el, i) => {
-                            return (
-                                <Login key={i + el.name} {...el} form={form} />
-                            );
-                        })}
-                        <Button type="submit" className="w-full" disabled={isloading} >
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                        {field.map((el, i) => (
+                            <Login key={i + el.name} {...el} form={form} />
+                        ))}
+
+                        <Button
+                            type="submit"
+                            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 rounded-md transition-all duration-300"
+                            disabled={isloading}
+                        >
                             {isloading ? "Loading..." : "Login"}
                         </Button>
                     </form>
                 </Form>
-                <Link to="/signup" className="block mt-4 text-center text-blue-500">
-                    Don't have an account? Sign up here
-                </Link>
+
+                <div className="text-center text-sm text-gray-600">
+                    Don’t have an account?{" "}
+                    <Link to="/signup" className="text-blue-600 hover:underline font-medium">
+                        Sign up here
+                    </Link>
+                </div>
             </div>
-
-
         </div>
+
     );
 };
 

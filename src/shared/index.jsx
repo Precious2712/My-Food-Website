@@ -41,7 +41,7 @@ const SignupRegisterForm = ({
                                             type={type === 'password' && showPassword ? 'text' : type}
                                             placeholder={placeholder}
                                             {...field}
-                                            className='text-white'
+                                            className='text-white '
                                         />
                                         {type === 'password' && (
                                             <button
