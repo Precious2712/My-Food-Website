@@ -1,8 +1,5 @@
-import harmburger from '/harmburger.mp4'
-import shamawa from '/shawarma video.mp4'
 import banner from '/foodbanner.mp4'
-import { Link, NavLink } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const WelcomePage = () => {
     return (

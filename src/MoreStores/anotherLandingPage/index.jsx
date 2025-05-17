@@ -1,18 +1,21 @@
 import { useState } from 'react';
-import logo from '/ChickenRepublic_Logo.svg'
 import { Link, NavLink } from 'react-router-dom';
 import { useGetUserCart } from '@/userCart/hook/useGetUserCart';
+import { useGetCurrentUser } from '@/userLogin/hook/useGetCurrentUser';
 
 const LandingPage = () => {
-
-    const {items} = useGetUserCart();
+    const { user } = useGetCurrentUser();
+    const { items } = useGetUserCart();
     console.log('page:', items?.result[0]?.items?.length);
-    
+
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleMenu = () => {
         setIsVisible(!isVisible);
     };
+
+    console.log(user);
+    
 
     const headings = [
         {
@@ -105,7 +108,7 @@ const LandingPage = () => {
                 </div>
 
                 <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                    <h1 class="text-3xl font-bold leading-tight mb-4">Welcome to More Awesome Food Store</h1>
+                    <h1 class="text-3xl font-bold leading-tight mb-4">{`${user?.data?.userName}`}</h1>
                     <p class="text-lg text-gray-300 mb-8">Discover amazing features and services that await you.</p>
                     <a href="#" class="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
                         <span className="text-blue-800">Welcome</span>

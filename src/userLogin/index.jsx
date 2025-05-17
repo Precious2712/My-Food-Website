@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { useToast } from '@/components/ui/use-toast';
 import Login from '@/shadcnLogin';
 import { field } from '@/shadcnLogin/field';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,7 +8,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
-
+import toast from 'react-hot-toast';
 
 const formSchema = z.object({
     email: z.string().email(),
@@ -19,9 +18,9 @@ const formSchema = z.object({
 const LoginUser = () => {
     const [response, setResponse] = useState()
     const navigate = useNavigate()
-    const { toast } = useToast();
     const [isloading, setIsLoading] = useState(false);
-
+    // console.log(response);
+    
     const form = useForm({
         resolver: zodResolver(formSchema)
     });
@@ -38,25 +37,22 @@ const LoginUser = () => {
 
             if (res) {
                 navigate('/home')
-                alert('user login successfully')
+                toast.success('User login successful ✅');
             }
 
         } catch (error) {
             console.log("error :", error);
 
             if (error?.response?.data?.message == 'user not found') {
-                return alert('user not found')
+                toast.error('User not found');
             }
             if (error?.message == 'Network Error') {
-                return alert('Network Error')
+                toast.error('Network error, please try again');
             }
         } finally {
             setIsLoading(false);
         }
     };
-
-
-
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-blue-700 via-purple-700 to-indigo-900 px-4">

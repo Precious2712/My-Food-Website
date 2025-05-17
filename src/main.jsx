@@ -2,17 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
 import { RouterProvider } from 'react-router-dom'
-import { ToastProvider } from './components/ui/toast'
+import { Toaster } from 'react-hot-toast'
 import './index.css'
 import { rootRoute } from './Route/index.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <App /> */}
-    <ToastProvider>
+    <Toaster position="top-center" reverseOrder={false} />
 
-      <RouterProvider router={rootRoute} />
+    <RouterProvider router={rootRoute} />
 
-    </ToastProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

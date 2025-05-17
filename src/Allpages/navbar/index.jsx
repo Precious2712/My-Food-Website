@@ -1,5 +1,6 @@
+import { useGetCurrentUser } from "@/userLogin/hook/useGetCurrentUser";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const HeroReact = () => {
     const navigate = useNavigate()
@@ -8,6 +9,8 @@ const HeroReact = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [toggle, setToggle] = useState(false);
     const [showModal, setShowModal] = useState(false);
+
+    const {user} = useGetCurrentUser();
 
     const toggleClass = () => {
         setIsNavOpen(!isNavOpen);
@@ -19,19 +22,6 @@ const HeroReact = () => {
         localStorage.removeItem("token");
         navigate('/login')
     }
-
-    function checkingToken() {
-        const token = localStorage.getItem("token");
-        if (!token) {
-            alert('Your token has expired please login')
-            navigate('/login')
-        }
-    }
-
-    useEffect(() => {
-        checkingToken()
-    }, [/* dependencies */]);
-
 
     return (
         <div className="min-h-screen relative flex flex-col bg-[url('https://www.tailwindtap.com/assets/components/hero/food-delivery/banner.jpg')]  bg-no-repeat w-full bg-cover bg-left-bottom sm:bg-center">
@@ -81,6 +71,9 @@ const HeroReact = () => {
                                     cart
                                 </div>
                             </Link>
+                            <div>
+                                <p className="text-white">{user?.data?.userName}</p>
+                            </div>
                         </div>
                     </div>
                     <div className="sm:flex gap-5 items-center hidden">
@@ -108,7 +101,7 @@ const HeroReact = () => {
                         {showModal && (
                             <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
                                 <div className="bg-white rounded-lg p-6 text-center w-[300px]">
-                                    <p className="text-gray-600 mb-5">Do you want to log out?</p>
+                                    <p className="text-gray-600 mb-5">Do you want to logout {`${user?.data.userName}`}</p>
                                     <div className="flex justify-center gap-4">
                                         <button
                                             onClick={confirmLogOut}
@@ -264,6 +257,7 @@ const HeroReact = () => {
                             >
                                 Search
                             </button>
+                            <p className="text-white">{user?.data?.data?.userName}</p>
                         </div>
 
                     </div>

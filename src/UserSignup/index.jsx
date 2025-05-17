@@ -7,7 +7,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { z } from "zod"
+import { z } from "zod";
+import toast from 'react-hot-toast';
 
 const formSchema = z.object({
     userName: z.string(),
@@ -34,7 +35,7 @@ const Signup = () => {
             const res = await axios.post("http://localhost:2000/api/v2/signup", information)
             console.log('response:', res);
             console.log(information);
-            alert('form submitted');
+            toast.success('User signup successful ✅');
             // console.log(information);
 
             if (res) {
