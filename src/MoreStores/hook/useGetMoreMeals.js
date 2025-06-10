@@ -7,7 +7,7 @@ export const useGetMoreMeals = () => {
     const Navigate = useNavigate();
     const getAllStores = async () => {
         try {
-            const response = await axios.get('http://localhost:2000/api/v1/getAllFoodDelivery');
+            const response = await axios.get('https://food-webbackened.onrender.com/getAllFoodDelivery');
             console.log('response', response?.data);
             setMeal(response?.data);
         } catch (error) {

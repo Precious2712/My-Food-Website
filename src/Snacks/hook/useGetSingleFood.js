@@ -10,7 +10,7 @@ export const useGetSingleFood = () => {
     const handleSelectSingleId = async (id) => {
         // alert(id)
         try {
-            const getSelectedFoodId = await axios.get(`http://localhost:2000/api/v3/getAllCategories/${id}`);
+            const getSelectedFoodId = await axios.get(`https://food-webbackened.onrender.com/getAllCategories/${id}`);
             // console.log('data', getSelectedFoodId);
             const colnedRes = JSON.parse(JSON.stringify(getSelectedFoodId));
             Navigate('/food-details', { state: { response: colnedRes } });

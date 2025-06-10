@@ -52,7 +52,7 @@ const Restaurants = () => {
                         <div className='flex justify-center'>
                             <img className='' src={delivery} alt="" />
                         </div>
-                        <h1 className='text-[15px] font-bold text-center sm:text-[17px] font-bold'>Your city's top restaurants</h1>
+                        <h1 className='text-[15px] font-bold text-center sm:text-[17px]'>Your city's top restaurants</h1>
                         <p className='text-center mt-[6px] leading-[0.7]'>With a great variety of restaurants you can</p>
                         <p className='text-center'>order your favourite food or explore new</p>
                         <p className='text-center'>restaurants nearby!</p>
@@ -62,7 +62,7 @@ const Restaurants = () => {
                         <div className='flex justify-center'>
                             <img className='' src={goceries} alt="" />
                         </div>
-                        <h1 className='text-[15px] font-bold text-center sm:text-[17px] font-bold'>Fast delivery</h1>
+                        <h1 className='text-[15px] font-bold text-center sm:text-[17px]'>Fast delivery</h1>
                         <p className='text-center mt-[6px] leading-[0.7]'>Like a flash! Order or send anything in your</p>
                         <p className='text-center'>city and receive it in minutes</p>
                     </div>
@@ -71,7 +71,7 @@ const Restaurants = () => {
                         <div className='flex justify-center'>
                             <img className='' src={restaurant} alt="" />
                         </div>
-                        <h1 className='text-[15px] font-bold text-center sm:text-[17px] font-bold'>Groceries delivery & more</h1>
+                        <h1 className='text-[15px] font-bold text-center sm:text-[17px]'>Groceries delivery & more</h1>
                         <p className='text-center mt-[6px] leading-[0.7]'>Find anything you need! From</p>
                         <p className='text-center'>supermarkets to shops, pharmacies to</p>
                         <p className='text-center'>florists — if it's in your city order it and</p>

@@ -7,7 +7,7 @@ export const UseAllCategories = () => {
     const Navigate = useNavigate()
     const handleGetAllCategories = async () => {
         try {
-            const res = await axios.get('http://localhost:2000/api/v3/allCategories')
+            const res = await axios.get('https://food-webbackened.onrender.com/allCategories')
             // console.log(res);
             setResponse(res)
         } catch (error) {

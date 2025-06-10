@@ -11,7 +11,7 @@ export const useGetCurrentUser = () => {
         console.log(token);
         
         try {
-            const checkUser = await axios.get('http://localhost:2000/api/v2/currentUser', {
+            const checkUser = await axios.get('https://food-webbackened.onrender.com/currentUser', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

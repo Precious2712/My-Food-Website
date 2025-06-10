@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const useGetUserCart = () => {
     const [items, setItems] = useState();
 
     const individualCart = async () => {
         try {
-            const getCustomerCart = await axios.get('http://localhost:2000/api/v4/getUserCart',
+            const getCustomerCart = await axios.get('https://food-webbackened.onrender.com/getUserCart',
                 {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -29,7 +28,7 @@ export const useGetUserCart = () => {
     const deleteCartProduct = async (id) => {
         alert(id);
         try {
-            const handleDeleteItem = await axios.delete(`http://localhost:2000/api/v4/deleteUserCart/${id}`,
+            const handleDeleteItem = await axios.delete(`https://food-webbackened.onrender.com/deleteUserCart/${id}`,
                 {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem('token'),

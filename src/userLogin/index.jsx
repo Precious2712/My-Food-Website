@@ -28,7 +28,7 @@ const LoginUser = () => {
     const onSubmit = async (data) => {
         setIsLoading(true);
         try {
-            const res = await axios.post("http://localhost:2000/api/v2/login", data);
+            const res = await axios.post("https://food-webbackened.onrender.com/login", data);
             console.log('response', res);
             setResponse(res);
             const token = res.data.tokenIn

@@ -9,7 +9,7 @@ export const useGetSingleMealsId = () => {
     const FoodSelectId = async (id) => {
         // alert('Select')
         try {
-            const getSelectedMealId = await axios.get(`http://localhost:2000/api/v1/getAllFoodVendors/${id}`);
+            const getSelectedMealId = await axios.get(`https://food-webbackened.onrender.com/getAllFoodVendors/${id}`);
             console.log('data', getSelectedMealId);
             const colnedRes = JSON.parse(JSON.stringify(getSelectedMealId));
             Navigate('/meal-details', { state: { response: colnedRes } })

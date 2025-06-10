@@ -8,7 +8,7 @@ export const useGetCart = () => {
         console.log('id', id);
         alert('product added to cart')
         try {
-            const createUser = await axios.post('http://localhost:2000/api/v4/createUserCart', { productId: id, quantity, model }, {
+            const createUser = await axios.post('https://food-webbackened.onrender.com/createUserCart', { productId: id, quantity, model }, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 }

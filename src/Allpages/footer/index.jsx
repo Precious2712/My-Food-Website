@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const FooterPage = () => {
     return (
         <div className='bg-black py-[50px]'>
-            <div className='grid grid-cols-2 gap-[0px]  m-auto sm:flex justify-evenly gap-[0px]'>
+            <div className='grid grid-cols-2 m-auto sm:flex justify-evenly gap-[0px]'>
 
                 <div>
                     <Link>

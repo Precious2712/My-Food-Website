@@ -32,7 +32,7 @@ const Signup = () => {
         // console.log(information);
         setisloading(true)
         try {
-            const res = await axios.post("http://localhost:2000/api/v2/signup", information)
+            const res = await axios.post("https://food-webbackened.onrender.com/signup", information)
             console.log('response:', res);
             console.log(information);
             toast.success('User signup successful ✅');
