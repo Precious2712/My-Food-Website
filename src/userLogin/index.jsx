@@ -19,7 +19,7 @@ const LoginUser = () => {
     const [response, setResponse] = useState()
     const navigate = useNavigate()
     const [isloading, setIsLoading] = useState(false);
-    // console.log(response);
+    console.log(response);
     
     const form = useForm({
         resolver: zodResolver(formSchema)

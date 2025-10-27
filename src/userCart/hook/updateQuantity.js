@@ -15,6 +15,8 @@ export const updateQuantity = () => {
                     },
                 }
             )
+            console.log(update);
+            
             individualCart();
         } catch (error) {
             console.log('error:', error);

@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useGetUserCart } from './hook/useGetUserCart'
-import { Button } from '@/components/ui/button';
 import { updateQuantity } from './hook/updateQuantity';
 
 const Carts = () => {
